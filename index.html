@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Katalog </title>
+
+    </head>       
+
+    <body>
+        <div class="container">
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th><img> thumbnail </th>
+                        <th> title </th>
+                        <th> brand </th>
+                        <th> category </th>
+                        <th> rating </th>
+                        <th> price </th>
+                        <th> stock </th>
+                    </tr>
+
+                </thead>
+  
+            
+            <tbody id="data">
+
+            </tbody>
+        </div>
+
+            </tbody>
+
+        </table>
+
+        <script>
+            fetch("https://dummyjson.com/products?limit=100").then(
+                res=>{
+                    res.json().then(
+                        data=>{
+                            console.log(data);
+                            if(data.lenght > 0){
+                                var temp = "";
+
+                                data.forEch((u)=> {
+                                    temp += "<tr>";
+                                    temp += "<td><img>" + thumbnail+ "</td";
+                                    temp += "<td>" + title+ "</td";
+                                    temp += "<td>" + brand+ "</td";
+                                    temp += "<td>" + category+ "</td";
+                                    temp += "<td>" + rating+ "</td";
+                                    temp += "<td>" + price+ "</td";
+                                    temp += "<td>" + stock+ "</td";
+                                })
+
+                                document.getElementById("data").innerHTML = temp;
+                            }
+                        }
+                    )
+                }
+            )
+
+        </script>
+
+    </body>
+        </table>
+    </div>
+        <script>
+
+
+        </script>
+
+    </head>
+</html>
