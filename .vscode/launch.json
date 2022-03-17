@@ -9,7 +9,10 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "/Users/marlenakraszewska/Documents/GitHub/KatalogJS/index.html"
+            "file": "/Users/marlenakraszewska/Documents/GitHub/KatalogJS/index.html",
+        
+
+            
         }
     ]
 }

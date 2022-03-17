@@ -4,13 +4,13 @@
     <head>
         <meta charset="UFT-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Katalog </title>
+        <title> Catalog </title>
 
     </head>       
 
     <body>
-        <div class="container">
-            <table class="table table-stripped">
+        <div class="productCatalog">
+            <table class="table">
                 <thead>
                     <tr>
                         <th><img> thumbnail </th>
@@ -43,7 +43,7 @@
                             if(data.lenght > 0){
                                 var temp = "";
 
-                                data.forEch((u)=> {
+                                data.products.forEach((u)=> {
                                     temp += "<tr>";
                                     temp += "<td><img>" + thumbnail+ "</td";
                                     temp += "<td>" + title+ "</td";
@@ -52,6 +52,7 @@
                                     temp += "<td>" + rating+ "</td";
                                     temp += "<td>" + price+ "</td";
                                     temp += "<td>" + stock+ "</td";
+                                    temp += "</tr>";
                                 })
 
                                 document.getElementById("data").innerHTML = temp;
