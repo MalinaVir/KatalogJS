@@ -84,7 +84,7 @@ createTableHTML() {
 this.productCatalog.appendChild(data);
 this.table = table;
 
-paginate(){
+paginate(); {
     const rows = this.table.querySelectorAll("tr.middleTr");
     const maxPage = Math.ceil(rows.lenght/this.pageLimit);
     const pagination = document.KatalogJS_element("div");
@@ -107,8 +107,32 @@ paginate(){
                 this.currentPage = i + 1;
                 this.changePage();
     }
-            }   
-};
+},
+
+    enumeration.interHTML = i + 1;
+    pagination.appendChild(enumeration);
+
+    const enumerationList = document.querySelectorAll(".pagination span")
+    const start           = (this.KatalogJS_element - 1) * this.enumerationLimit;
+    const end             = start + this.enumerationLimit;
+    const maxEnumeration  = Math.ceil(enumerationList.length / this.enumerationLimit);
+    this.maxEnumeration   = maxEnumeration;
+
+            enumerationList.forEach(enu => {            
+                enu.classList.add("d-none");
+                enu.classList.remove("enumeration");
+    });
+
+    for(let i = start; i < end; i++){    
+        if(typeof enumerationList[i] != "undefined"){
+            enumerationList[i].classList.remove("d-none");
+            enumerationList[i].classList.add("enumeration");
+        }        
+    };
+}
+
+
+
 
 }
 
