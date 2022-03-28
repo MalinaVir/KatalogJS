@@ -7,6 +7,7 @@ fetch("https://dummyjson.com/products?limit=100").then(response => {
 function printTabela(data) {
     const KatalogJS_element = document.getElementById('productCatalog');
     const pagination_element = dokument.getElementById('pagination');
+}
 
 
 class Table {
@@ -216,3 +217,5 @@ function updateListSelection(liID) {
         targetLi = dokument.getElementById(liID);
     list.scrollTop = (targetLi.offsetTop - 25);
 }
+
+new Table(document.getElementById("productCatalog") , data);
