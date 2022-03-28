@@ -107,7 +107,7 @@ paginate(); {
                 this.currentPage = i + 1;
                 this.changePage();
     }
-},
+}
 
     enumeration.interHTML = i + 1;
     pagination.appendChild(enumeration);
@@ -129,11 +129,86 @@ paginate(); {
             enumerationList[i].classList.add("enumeration");
         }        
     };
+
+    iconRight.addEventListener("click", () => {
+        this.currentEnumeration++;
+        this.pageNumber++;  
+        this.changeBtn();
+        this.currentPage = (this.pageNumber * this.enumerationLimit) + 1;
+        this.changePage();
+    });
+
+    iconLeft.addEventListener("click", () => {
+        this.currentEnumeration--;    
+        this.pageNumber--;                    
+        this.changeBtn();
+        this.currentPage = (this.pageNumber * this.enumerationLimit) + 1;
+        this.changePage();
+    });
+
+    this.changePage(); 
 }
 
+changeBtn(){
+    const enumerationList = document.querySelectorAll(".pagination span")
+    const start           = (this.currentEnumeration - 1) * this.enumerationLimit;
+    const end             = start + this.enumerationLimit;
 
+    enumerationList.forEach(enu => {
+        enu.classList.remove("enumeration");
+        enu.classList.add("d-none");
+    });
 
+    for (let i = start; i < end; i++){       
+        if(typeof enumerationList[i] != "undefined"){
+            enumerationList[i].classList.remove("d-none");
+            enumerationList[i].classList.add("enumeration");
+        }                                      
+    };
 
+    document.querySelectorAll(".enumeration").forEach(enumeration => {
+        enumeration.classList.remove("active");
+    });
+
+    document.querySelector(".enumeration:nth-child("+ ((this.enumerationLimit * this.currentEnumeration) - (this.enumerationLimit - 2)) +")").classList.add("active");
+
+    changePage(){
+        const rows  = this.table.querySelectorAll("tr.middleTr");
+        const start = (this.currentPage-1) * this.pageLimit;
+        const end = start + this.pageLimit;
+
+        if(this.currentEnumeration == 1){
+            this.iconLeft.classList.remove("fa","fa-chevron-left")
+            this.iconLeft.classList.add("d-none");
+        }else{
+            this.iconLeft.classList.add("fa","fa-chevron-left")
+            this.iconLeft.classList.remove("d-none");
+        }
+
+        if(this.currentEnumeration == this.maxEnumeration){
+            this.iconRight.classList.remove("fa","fa-chevron-right")
+            this.iconRight.classList.add("d-none");
+        }else{
+            this.iconRight.classList.add("fa","fa-chevron-right")
+            this.iconRight.classList.remove("d-none");
+        }
+
+        rows.forEach(row => {
+            row.classList.add("d-none");
+        });
+
+        for (let i = start; i < end; i++){
+            if(typeof rows[i] != "undefined"){
+                rows[i].classList.remove("d-none");
+            }
+        };
+
+        document.querySelectorAll(".enumeration").forEach(enumeration => {
+            enumeration.classList.remove("active");
+        });
+
+        document.querySelector(".enumeration:nth-child("+ (this.currentPage + 1) +")").classList.add("active");
+    }
 }
 
 function updateListSelection(liID) {
