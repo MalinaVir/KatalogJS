@@ -1,0 +1,64 @@
+style.css
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: auto;
+        }
+        td, th {
+            border: 1px solid;
+            padding: 10px;
+            color: rgb(35, 35, 39);
+
+        }
+        th {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        th:hover {
+            background-color: #555;
+            color: #fff;
+        }
+        .middleTr td{
+            font-size: 12px;
+            padding: 10px;
+            border-bottom: 1px solid #444;  
+        }
+        .pagination{
+            display: flex;
+            justify-content: center;   
+        }
+        .pagination .enumeration{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 12px;
+            background-color: #222;
+            cursor: pointer;
+            color: #999;
+        }
+        .enumeration.active{
+            background-color: #273c75;
+            color: white;
+        }
+        
+        .fa.fa-chevron-left {
+            font-size: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+            cursor: pointer;
+            color: #777;
+        }
+        .fa.fa-chevron-right {
+            font-size: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+            cursor: pointer;
+            color: #777;
+        }
