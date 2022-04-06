@@ -85,7 +85,7 @@ createTableHTML() {
 this.productCatalog.appendChild(data);
 this.table = table;
 
-paginate(); {
+paginate() {
     const rows = this.table.querySelectorAll("tr.middleTr");
     const maxPage = Math.ceil(rows.lenght/this.pageLimit);
     const pagination = document.KatalogJS_element("div");
@@ -173,7 +173,7 @@ changeBtn(){
 
     document.querySelector(".enumeration:nth-child("+ ((this.enumerationLimit * this.currentEnumeration) - (this.enumerationLimit - 2)) +")").classList.add("active");
 
-    changePage(){
+    changePage() {
         const rows  = this.table.querySelectorAll("tr.middleTr");
         const start = (this.currentPage-1) * this.pageLimit;
         const end = start + this.pageLimit;
