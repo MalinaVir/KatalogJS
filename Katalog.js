@@ -223,4 +223,10 @@ function updateListSelection(liID) {
     list.scrollTop = (targetLi.offsetTop - 25);
 }
 
-newTable(document.getElementById("productCatalog") , data)
+newTable(document.getElementById("productCatalog") , data);
+
+function sum(newTable) {
+    return newTable;
+}
+
+console.log(sum(newTable));
