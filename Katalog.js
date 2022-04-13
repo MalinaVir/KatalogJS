@@ -1,5 +1,6 @@
-window.onload = finction (); 
+window.onload = function () {;
     console.log("app started");
+}
  
 fetch("https://dummyjson.com/products?limit=100").then(response => {
     console.log(response);
@@ -43,13 +44,13 @@ createTableHTML() {
     priceTh.interHTML = "Price";
     stockTh.interHTML = "Stock";
 
-    headerTr.appendChild(thumbnailTh);
-    headerTr.appendChild(titleTh);
-    headerTr.appendChild(brandTh);
-    headerTr.appendChild(categoryTh);
-    headerTr.appendChild(ratingTh);
-    headerTr.appendChild(priceTh);
-    headerTr.appendChild(stockTh);
+    headerTr.appendProducts(thumbnailTh);
+    headerTr.appendProducts(titleTh);
+    headerTr.appendProducts(brandTh);
+    headerTr.appendProducts(categoryTh);
+    headerTr.appendProducts(ratingTh);
+    headerTr.appendProducts(priceTh);
+    headerTr.appendProducts(stockTh);
     
     this.data.forEach(row => {
     const middleTr = dokument.KatalogJS_element("tr");
@@ -71,18 +72,18 @@ createTableHTML() {
     priceTd.interHTML = row.price;
     stockTd.interHTML = row.stock;
 
-    middleTr.appendChild(thumbnailTd);
-    middleTr.appendChild(titleTd);
-    middleTr.appendChild(brandTd);
-    middleTr.appendChild(categoryTd);
-    middleTr.appendChild(ratingTd);
-    middleTr.appendChild(priceTd);
-    middleTr.appendChild(stockTd);
+    middleTr.appendProducts(thumbnailTd);
+    middleTr.appendProducts(titleTd);
+    middleTr.appendProducts(brandTd);
+    middleTr.appendProducts(categoryTd);
+    middleTr.appendProducts(ratingTd);
+    middleTr.appendProducts(priceTd);
+    middleTr.appendProducts(stockTd);
 
     });
     }
 }
-this.productCatalog.appendChild(data);
+this.productCatalog.appendProducts(data);
 this.table = table;
 
 paginate() ; {
@@ -98,7 +99,7 @@ paginate() ; {
     iconLeft.classList.add("fa","fa-chevron-left");
     iconRight.classList.add("fa","fa-chevron-right");
     
-    pagination.appendChild(iconLeft);
+    pagination.appendProducts(iconLeft);
 
         for (let i = 0; i < maxPage; i++){
             const enumeration = document.KatalogJS_element("span");
@@ -111,11 +112,11 @@ paginate() ; {
 
 
     enumeration.interHTML = i + 1 ;
-    pagination.appendChild(enumeration);
+    pagination.appendProducts(enumeration);
 }
 
-pagination.appendChild(iconRight);
-this.productCatalog.appendChild(pagination);
+pagination.appendProducts(iconRight);
+this.productCatalog.appendProducts(pagination);
 
     const enumerationList = document.querySelectorAll(".pagination span")
     const start           = (this.KatalogJS_element - 1) * this.enumerationLimit;
