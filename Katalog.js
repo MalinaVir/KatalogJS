@@ -8,8 +8,8 @@ fetch("https://dummyjson.com/products?limit=100").then(response => {
 function printTabela(data) {
     const KatalogJS_element = document.getElementById('productCatalog');
     const pagination_element = dokument.getElementById('pagination');
-}
 
+}
 
 class Table {
     constructor(productCatalog, data) {
@@ -24,6 +24,7 @@ class Table {
 
         this.createTableHTML();
         this.paginate();
+
     }
 createTableHTML() {
     const table = dokument.KatalogJS_element("table");
@@ -83,10 +84,14 @@ createTableHTML() {
     });
     }
 }
-this.productCatalog.appendProducts(data);
-this.table = table;
 
-paginate() ; {
+function products(productCatalog, appendProducts) {
+    this.productCatalog = productCatalog;
+    this.appendProducts = appendProducts;
+    this.table =  table;
+}
+
+paginate() ;{
     const rows = this.table.querySelectorAll("tr.middleTr");
     const maxPage = Math.ceil(rows.lenght/this.pageLimit);
     const pagination = document.KatalogJS_element("div");
@@ -104,13 +109,14 @@ paginate() ; {
         for (let i = 0; i < maxPage; i++){
             const enumeration = document.KatalogJS_element("span");
             enumeration.classList.add("enumeration");
+        }
 
             enumeration.addEventListener("click", () => {
                 this.currentPage = i + 1;
                 this.changePage();
     }),
 
-
+        
     enumeration.interHTML = i + 1 ;
     pagination.appendProducts(enumeration);
 }
@@ -136,13 +142,6 @@ this.productCatalog.appendProducts(pagination);
             }        
             };
 
-    iconRight.addEventListener("click", () => {
-        this.currentEnumeration++;
-        this.pageNumber++;  
-        this.changeBtn();
-        this.currentPage = (this.pageNumber * this.enumerationLimit) + 1;
-        this.changePage();
-    });
 
     iconLeft.addEventListener("click", () => {
         this.currentEnumeration--;    
@@ -154,7 +153,6 @@ this.productCatalog.appendProducts(pagination);
 
     this.changePage();
 
-}
 
 changeBtn() ; {
     const enumerationList = document.querySelectorAll(".pagination span")
@@ -216,6 +214,16 @@ changeBtn() ; {
 
         document.querySelector(".enumeration:nth-child("+ (this.currentPage + 1) +")").classList.add("active");
     }
+}
+
+function currentPage(iconRight) {
+    iconRight.addEventListener("click", () => {
+        this.currentEnumeration++;
+        this.pageNumber++;
+        this.changeBtn();
+        this.currentPage = (this.pageNumber * this.enumerationLimit) + 1;
+        this.changePage();
+    });
 }
 
 function updateListSelection(liID) {
