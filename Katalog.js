@@ -85,14 +85,17 @@ createTableHTML() {
     }
 }
 
-function products(productCatalog, appendProducts) {
+function products(productCatalog, appendProducts, table, querySelector) {
     this.productCatalog = productCatalog;
     this.appendProducts = appendProducts;
     this.table =  table;
+    this.querySelector = querySelectorAll;
 }
 
-paginate() ;{
-    const rows = this.table.querySelectorAll("tr.middleTr");
+function querySelector ()
+
+paginate(); {
+    const rows = this.table.querySelector("tr.middleTr");
     const maxPage = Math.ceil(rows.lenght/this.pageLimit);
     const pagination = document.KatalogJS_element("div");
     const iconLeft = document.KatalogJS_element("i");
