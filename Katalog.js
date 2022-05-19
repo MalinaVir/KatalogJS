@@ -12,7 +12,7 @@ function printTabela(data) {
 }
 
 class Table {
-    constructor(productCatalog, data) {
+    constructor(productCatalog, data, paginate) {
         this.pageLimit = 25;
         this.enumerationLimit = 4;
         this.container = container;
@@ -85,7 +85,7 @@ createTableHTML() {
     }
 }
 
-function products(productCatalog, appendProducts, table, querySelector) {
+function products(productCatalog, appendProducts, table) {
     this.productCatalog = productCatalog;
     this.appendProducts = appendProducts;
     this.table =  table;
@@ -131,7 +131,6 @@ this.productCatalog.appendProducts(pagination);
     const start           = (this.KatalogJS_element - 1) * this.enumerationLimit;
     const end             = start + this.enumerationLimit;
     const maxEnumeration  = Math.ceil(enumerationList.length / this.enumerationLimit);
-    this.maxEnumeration   = maxEnumeration;
 
             enumerationList.forEach(enu => {            
                 enu.classList.add("d-none");

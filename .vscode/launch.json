@@ -3,13 +3,23 @@
     // Najedź kursorem, aby wyświetlić opisy istniejących atrybutów.
     // Aby uzyskać więcej informacji, odwiedź stronę: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
+    
     "configurations": [
-        
+
+
         {
-            "type": "pwa-chrome",
+            "type": "node",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "/Users/marlenakraszewska/Documents/GitHub/KatalogJS/index.html"
+            "name": "Katalog.js_element",
+            "cwd": "${workspaceRoot}"
+            "_program": "${workspaceRoot}/Users/marlenakraszewska/Documents/GitHub/KatalogJS/index.html",
+            get "program"() {
+                return this["_program"]
+            },
+            set "program"(value) {
+                this["_program"] = value
+            },
+            
         }
     ]
 }
